@@ -45,38 +45,48 @@
    cd planstack
    ```
 
-2. **Replace `app/page.js`** with the content from this folder's `src/app/page.js`
-
-3. **Replace `app/globals.css`** with:
-   ```css
-   @tailwind base;
-   @tailwind components;
-   @tailwind utilities;
+2. **Create the hybrid structure:**
+   ```bash
+   # Create landing page in Pages Router
+   mkdir pages
+   # Copy pages/index.js from this repo
+   
+   # Create main app in nested App Router structure  
+   mkdir app/app
+   # Copy app/app/page.js from this repo
+   # Copy app/layout.js and app/globals.css from this repo
    ```
 
-4. **Run locally:**
+3. **Run locally:**
    ```bash
    npm run dev
    ```
+   - Landing page will be at http://localhost:3000/
+   - Main application will be at http://localhost:3000/app
 
-5. **Deploy:** Push to GitHub, import to Vercel
+4. **Deploy:** Push to GitHub, import to Vercel
 
 ---
 
 ## Project Structure
 
 ```
-planstack-nextjs/
-├── src/
+planstack/
+├── pages/
+│   └── index.js           ← Landing page (Pages Router)
+├── app/
+│   ├── layout.js          ← App Router HTML wrapper
+│   ├── globals.css        ← Tailwind imports
 │   └── app/
-│       ├── page.js        ← Main PlanStack application
-│       ├── layout.js      ← HTML wrapper
-│       └── globals.css    ← Tailwind imports
+│       └── page.js        ← Main PlanStack application at /app
 ├── package.json
 ├── tailwind.config.js
 ├── postcss.config.js
-└── next.config.js
+├── next.config.js
+└── vercel.json            ← Empty for auto-detection
 ```
+
+**Note**: This project uses a hybrid routing approach with both Next.js Pages Router (for the landing page at `/`) and App Router (for the main application at `/app`).
 
 ---
 
