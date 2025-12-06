@@ -49,12 +49,14 @@
    ```bash
    # Create landing page in Pages Router
    mkdir pages
-   # Copy pages/index.js from this repo
+   # Create pages/index.js with your landing page content
+   # (See ./pages/index.js in this repo for reference)
    
    # Create main app in nested App Router structure  
    mkdir app/app
-   # Copy app/app/page.js from this repo
-   # Copy app/layout.js and app/globals.css from this repo
+   # Create app/app/page.js with your main application
+   # (See ./app/app/page.js in this repo for reference)
+   # Update app/layout.js and app/globals.css as needed
    ```
 
 3. **Run locally:**
@@ -86,7 +88,10 @@ planstack/
 └── vercel.json            ← Empty for auto-detection
 ```
 
-**Note**: This project uses a hybrid routing approach with both Next.js Pages Router (for the landing page at `/`) and App Router (for the main application at `/app`).
+**Note**: This project uses a hybrid routing approach with both Next.js Pages Router (for the landing page at `/`) and App Router (for the main application at `/app`). This allows us to:
+- Serve a simple landing page using the familiar Pages Router
+- Use the modern App Router features for the interactive application
+- Keep both routing systems working together without conflicts
 
 ---
 
